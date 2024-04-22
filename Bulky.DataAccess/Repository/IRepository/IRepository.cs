@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository.IRepository
 {
-    internal interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
+
+        //to get linq as parameter we can add it like this as mentioned below Ex->(u => u.id = Id)
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Remove(T entity);
